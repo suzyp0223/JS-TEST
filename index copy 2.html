@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todos v0</title>
+<style>
+  .todo-checkbox:checked + span {
+    text-decoration: line-through;
+  }
+</style>
+</head>
+<body>
+  <input type="text" class="todo-input" />
+  <ul class="todo-list"></ul>
+
+  <script>
+    // CRUD
+    // 사용자가 텍스트 입력후 엔터 쳤을때 
+    // 1. input 요소에 있는 데이터를 참조해서 밸류 프로퍼티를 얻기.
+
+
+    //돔연습용 코드
+    const todoInput = document.querySelector('.todo-input');
+    const todoList = document.querySelector('.todo-list');
+
+    todoInput.addEventListener('keyup', e => {
+      // 얼리리턴
+      if (e.key !== 'Enter') return;
+
+      console.log("todoInput.value: ", todoInput.value);
+      // += 참조, 할당의 줄임   = +
+      todoList.innerHTML =
+        `<li>
+          <input type="checkbox" class="todo-checkbox">
+          <span>${todoInput.value}</span>
+          <button class="todo-remove">X</button>
+        </li>` + todoList.innerHTML;
+      todoInput.value = '';
+
+    });
+
+    // js로 체크박스 선택시 가운데 줄. 
+    todoList.addEventListener('change', e => {
+      console.log(e.target.nextElementSibling);
+
+      e.target.nextElementSibling.style.textDecoration = e.target.checked
+      ? 'line-through'
+      : 'none';
+    });
+
+    //이벤트 위임을 하면 거르는 작업이 필요. 버튼만 삭제되는 작업이 필요.
+    // 이벤트 발생시 e타겟을 거른다.
+    // todoList.addEventListener('change', e => {
+    //   if (e.target.matches('.todo-remove')) return; //얼리리턴
+    //     e.target.parentNode.remove();
+
+    //   console.log(e.target.parentNode);
+
+    // });
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Todos v0</title>
+  <style>
+    .todo-checkbox:checked+span {
+      text-decoration: line-through;
+    }
+  </style>
+</head>
+
+<body>
+  <input type="text" class="todo-input" />
+  <ul class="todo-list"></ul>
+
+  <script>
+    // Mock
+    let todos; // State
+    const fetchTodes = () => [
+      { id: 3, content: "Javascript", completed: false },
+      { id: 2, content: "CSS", completed: true },
+      { id: 1, content: "HTML", completed: false }
+    ];
+
+    const todoList = document.querySelector(".todo-list");
+    // 초기 랜더링
+    const render = () => {
+      // console.log("todos?: ", todos);
+      todoList.innerHTML = todos
+        .map(
+          (todo) => `<li id = "${todo.id}">
+              <label><input type = "checkbox" ${todo.completed ? "checked" : ""}>${todo.content}</label>
+              </li>`
+        )
+        .join("");
+    };
+
+    const toggleTodoCompleted = (id) => {
+      todos.map((todo) =>
+        (todo.id === +id ? { ...todo, completed: !todo.completed } : todo));
+    };
+    window.addEventListener("DOMContentLoaded", () => {
+      todos = fetchTodes();
+      render();
+    });
+
+
+    //todo의 content전부 출력, id 동일한 것만 출력되게 변경.
+    // 동일한 id content면 style 적용되게 변경.240821
+    todoList.addEventListener("change", (e) => {
+      todos.map((todo) => {
+        console.log("todo??? ", todo.content);
+        console.log("e.target.checked: ", e.target.checked);
+        todo.content === e.target.checked
+
+
+
+        // e.target.text.style.textDecoration = e.target.checked
+        //   ? "line-through"
+        //   : "none";
+      });
+    });
+  </script>
+</body>
+
+</html>
