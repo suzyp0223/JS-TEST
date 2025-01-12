@@ -1,14 +1,10 @@
-/* 1. 최소값 구하기 */
+// /* 1. 최소값 구하기 */ 조건문
 
 /* user code */
 function answer(x, y) {
-  let min;
-
-  // 코드 구현 시작 영역
-
-  // …
-
-  // 코드 구현 종료 영역
+  let min =
+    // Math.min(x, y);
+    x > y ? y : x;
 
   return min;
 }
@@ -27,6 +23,6 @@ for (let i = 0; i < input.length; i++) {
   console.log(`#${i + 1} ${answer(input[i][0], input[i][1])}`);
 }
 // 출력 값
-// #1
-// #2
-// #3
+// #1 3
+// #2 -3
+// #3 525

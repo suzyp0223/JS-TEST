@@ -1,19 +1,17 @@
-/* 5. 중복 단어 제거 */
+// /* 5. 중복 단어 제거 */ Array, Date
+// 입력값은 문자형배열, 중복단어가 제거된 배열반환.
 
-/* user code */
 function answer(arr) {
   let new_arr = [];
 
-  // 코드 구현 시작 영역
-
-  // …
-
-  // 코드 구현 종료 영역
+  // new Set(arr).forEach(str => new_arr.push(str));
+  // new_arr = arr.filter((str, i) => arr.indexOf(str) === i);
+  new_arr = Array.from(new Set(arr));
 
   return new_arr;
 }
 
-/* main code */
+
 let input = [
   // TC: 1
   ["john", "alice", "alice"],
@@ -28,6 +26,6 @@ for (let i = 0; i < input.length; i++) {
   console.log(answer(input[i]));
 }
 // 출력 값
-// #1
-// #2
-// #3
+// #1 ["john", "alice"]
+// #2 ["Hello", "hello", "HELLO"]
+// #3 ["kiwi", "banana", "mango"]

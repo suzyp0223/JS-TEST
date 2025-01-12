@@ -1,4 +1,4 @@
-/* 10. 2차원 배열의 곱셈 합 */
+// /* 10. 2차원 배열의 곱셈 합 */ 반복문, Array
 
 /* user code */
 function answer(arr) {

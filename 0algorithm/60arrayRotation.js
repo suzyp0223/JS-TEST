@@ -1,14 +1,18 @@
-/* 8. 배열 회전 */
-
+// /* 8. 배열 회전 */ 반복문, Array
+// 순서를 역으로 만들어 반환
+// reverse함수 사용하지 않고 반복문으로 구현
 /* user code */
 function answer(user) {
   let reverse = [];
+  for (let i = 0; i < user.length; i++) {
+    if (user[0] > user[1]) {
+      reverse.push(user[1])
+    } else {
+      reverse.push(user[0])
+    }
+    // user[0] > user[1] ? reverse.push(user[1]) : reverse.push(user[0]);
+  }
 
-  // 코드 구현 시작 영역
-
-  // …
-
-  // 코드 구현 종료 영역
 
   return reverse;
 }
@@ -28,6 +32,6 @@ for (let i = 0; i < input.length; i++) {
   console.log(answer(input[i]));
 }
 // 출력 값
-// #1
-// #2
-// #3
+// #1 [4,3,2,1]
+// #2 [-15, 'hello', 6, -1]
+// #3 ['mango', 'banana', 'apple']

@@ -1,14 +1,17 @@
-/* 6. 배열 내 최대값 구하기 */
+// /* 6. 배열 내 최대값 구하기 */ 반복문
 
 /* user code */
 function answer(arr) {
   let max;
+  // Math.max(...arr);
 
-  // 코드 구현 시작 영역
-
-  // …
-
-  // 코드 구현 종료 영역
+  max = arr[0]; // i를 1로 설정해서 for문돌기
+  // max = Number.MIN_SAFE_INTEGER; // 음수의 최대값 // i를 0으로
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] > max) {
+      max = arr[i];
+    }
+  }
 
   return max;
 }

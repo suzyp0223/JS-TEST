@@ -1,4 +1,4 @@
-/* 9. 문자 교정 */
+// /* 9. 문자 교정 */ 반복문, Array
 
 /* user code */
 function answer(str) {
